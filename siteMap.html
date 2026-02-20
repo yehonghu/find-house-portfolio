@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Site Map — Find House</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ======== NAVIGATION ======== -->
+  <header class="site-header" id="siteHeader">
+    <div class="nav-inner">
+      <div class="site-logo">
+        <a href="home.html">
+          <div class="logo-icon">🏠</div>
+          Find House
+        </a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav-links" id="navLinks">
+        <a href="home.html">Home</a>
+        <a href="search.html">For Sale</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="siteMap.html" class="active">Site Map</a>
+        <a href="contact.html" class="nav-cta">Get Started</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ======== PAGE HEADER ======== -->
+  <div style="background: linear-gradient(135deg, var(--primary) 0%, #0f2540 100%); padding: 52px 32px 48px;">
+    <div style="max-width:1280px; margin:0 auto;">
+      <div class="hero-badge" style="margin-bottom:14px;">🗺️ Navigation Guide</div>
+      <h1 style="font-size:clamp(28px,4vw,48px); font-weight:800; color:#fff; letter-spacing:-.5px; margin-bottom:10px;">Site Map</h1>
+      <p style="color:rgba(255,255,255,.75); font-size:16px;">An overview of all pages available on Find House.</p>
+    </div>
+  </div>
+
+  <!-- ======== MAIN CONTENT ======== -->
+  <section class="section">
+    <div class="section-inner">
+
+      <div class="sitemap-grid">
+
+        <!-- Home -->
+        <div class="sitemap-card fade-in-up">
+          <div class="sitemap-card-icon">🏠</div>
+          <div class="sitemap-card-title">Home</div>
+          <div class="sitemap-card-links">
+            <a href="home.html" class="sitemap-link">Homepage — Meet Our Agents</a>
+          </div>
+        </div>
+
+        <!-- For Sale -->
+        <div class="sitemap-card fade-in-up" style="animation-delay:.1s">
+          <div class="sitemap-card-icon">🏡</div>
+          <div class="sitemap-card-title">Properties For Sale</div>
+          <div class="sitemap-card-links">
+            <a href="search.html" class="sitemap-link">All Listings</a>
+            <a href="houseInfo1.html" class="sitemap-link">Property 1 — 7 Gerald St ($5,300,000)</a>
+            <a href="houseInfo2.html" class="sitemap-link">Property 2 — St. Andrew-Windfields ($3,190,000)</a>
+            <a href="houseInfo3.html" class="sitemap-link">Property 3 — Morningside Townhome ($2,149,000)</a>
+          </div>
+        </div>
+
+        <!-- Contact -->
+        <div class="sitemap-card fade-in-up" style="animation-delay:.2s">
+          <div class="sitemap-card-icon">💬</div>
+          <div class="sitemap-card-title">Contact Us</div>
+          <div class="sitemap-card-links">
+            <a href="contact.html" class="sitemap-link">Contact Form</a>
+          </div>
+        </div>
+
+        <!-- Site Map -->
+        <div class="sitemap-card fade-in-up" style="animation-delay:.3s">
+          <div class="sitemap-card-icon">🗺️</div>
+          <div class="sitemap-card-title">Site Map</div>
+          <div class="sitemap-card-links">
+            <a href="siteMap.html" class="sitemap-link">This Page</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Credits -->
+      <div style="margin-top:48px; background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-md); padding:32px; box-shadow:var(--shadow-sm);" class="fade-in-up">
+        <div class="hif-card-title" style="margin-bottom:16px;">Credits &amp; Acknowledgements</div>
+        <p style="font-size:14px; color:var(--text-muted); line-height:1.8;">
+          This project was created by <strong style="color:var(--primary);">Yehong Hu</strong> (Student ID: 301392896) as the 23Fall Final Project.
+          All property listings and agent profiles are fictional and created for educational purposes only.
+          Property images are used for demonstration purposes.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======== FOOTER ======== -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="logo-text">🏠 Find House</div>
+          <p>Toronto's premier real estate agency, dedicated to helping you find the perfect home.</p>
+        </div>
+        <div class="footer-links-col">
+          <h4>Pages</h4>
+          <a href="home.html">Home</a>
+          <a href="search.html">For Sale</a>
+          <a href="contact.html">Contact Us</a>
+          <a href="siteMap.html">Site Map</a>
+        </div>
+        <div class="footer-links-col">
+          <h4>Contact</h4>
+          <a href="tel:+16045551234">+1 604-555-1234</a>
+          <a href="mailto:Yehong.findhouse@gmail.com">Yehong.findhouse@gmail.com</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>Copyright &copy; 2023 Yehong Hu &mdash; 301392896 &mdash; 23Fall Final Project</span>
+        <span>Find House &mdash; All rights reserved</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const header = document.getElementById('siteHeader');
+    window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 10));
+    const toggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => {
+      toggle.classList.toggle('open');
+      navLinks.classList.toggle('open');
+    });
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
