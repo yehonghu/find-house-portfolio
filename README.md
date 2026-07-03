@@ -4,7 +4,9 @@ A fully upgraded real estate frontend project showcasing modern UI/UX design, re
 
 ## 🌐 Live Demo
 
-> Open `home.html` directly in your browser — no build step required.
+**[👉 View Live Website](https://yehonghu.github.io/find-house-portfolio/)**
+
+> Or open `home.html` directly in your browser — no build step required.
 
 ## 📸 Pages
 
