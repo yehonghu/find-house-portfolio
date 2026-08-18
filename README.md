@@ -1,26 +1,28 @@
-# Find House
+# Find House — Residence Casebook
 
-> A fictional Toronto property exploration experience built around neighbourhood context, spatial comparison, and a clear next viewing.
+> A fictional Toronto real-estate casebook built around the project’s original property photography, three individual residences, and a focused viewing path.
 
-Find House is a static, portfolio-grade real-estate interface. The upgraded **City Contours** system turns a traditional listings site into a map-informed city journey: visitors begin with district signals, compare a concise property collection, inspect individual homes, and start a viewing conversation.
+Find House is a static, portfolio-grade real-estate experience. **Residence Casebook** presents three fictional homes through their original project images, concise facts, and individual detail pages. Every public route uses one photography-first editorial system; no alternate visual version, map interface, or legacy collection remains.
 
 ## Live Preview
 
-The static site is published at [yehonghu.github.io/find-house-portfolio](https://yehonghu.github.io/find-house-portfolio/).
+The current static site is published at [yehonghu.github.io/find-house-portfolio](https://yehonghu.github.io/find-house-portfolio/).
 
 ## Experience
 
-| Surface | Interaction and purpose |
+| Route | Purpose |
 |---|---|
-| City overview | A pointer-responsive district board uses layered property markers, map lines, and spatial depth to introduce the collection. |
-| Scroll journey | Progress rail, contour-grid parallax, and staggered reveals give the page the rhythm of moving through a city. |
-| Listing search | Visitors can filter fictional homes by type, price range, and bedroom count, then save a listing locally during the session. |
-| Property details | Individual house pages provide a focused property narrative, facts, and a direct contact route. |
-| Contact and sitemap | Visitors can start a viewing conversation or revisit the complete site structure. |
+| `home.html` | A photography-led opening and three selected property cases. |
+| `search.html` | A unified all-residences collection view. |
+| `houseInfo1.html` | Case 01: 7 Gerald Street. |
+| `houseInfo2.html` | Case 02: Windfields Estate. |
+| `houseInfo3.html` | Case 03: Morningside Townhome. |
+| `contact.html` | A fictional viewing inquiry with client-side feedback. |
+| `siteMap.html` | A clear index of every current casebook route. |
 
-## Design Language
+## Design and Interaction
 
-**City Contours** deliberately differs from the other portfolio projects. It uses limestone, city fog, charcoal labels, brick-red location signals, park-green land fields, and cobalt transit lines. Architectural cards, map contours, and controlled elevation make the interface feel like an urban field guide rather than a generic luxury real-estate template.
+Residence Casebook uses a restrained editorial palette—warm ivory, graphite, and muted brass—to frame the original house photography rather than compete with it. The site supports native vertical scrolling, a quiet reading-progress rule, gentle image micro-parallax, pointer-responsive case photography, viewport reveals, responsive navigation, and reduced-motion preferences.
 
 ## Technology
 
@@ -28,7 +30,7 @@ The static site is published at [yehonghu.github.io/find-house-portfolio](https:
 |---|---|
 | Markup | HTML5 |
 | Styling | CSS3 custom properties, responsive grid, three-dimensional transforms, reduced-motion support |
-| Interaction | Vanilla JavaScript, IntersectionObserver, pointer movement, local favourite state, dynamic filters |
+| Interaction | Vanilla JavaScript and IntersectionObserver |
 | Deployment | Static GitHub Pages site with no build step |
 
 ## Run Locally
@@ -37,18 +39,18 @@ Clone the repository and open `index.html` or `home.html` in a modern browser. N
 
 ```text
 find-house-portfolio/
-├── index.html              # Static entry and home redirect
-├── home.html               # City Contours overview
-├── search.html             # Filterable property collection
-├── houseInfo*.html         # Property detail pages
+├── index.html              # Static entry and current-home redirect
+├── home.html               # Residence Casebook opening
+├── search.html             # All residences collection
+├── houseInfo*.html         # Unified property case pages
 ├── contact.html            # Viewing inquiry form
-├── siteMap.html            # Site structure
-├── style.css               # Global City Contours system
-└── city-contours.js        # Shared dynamic interaction layer
+├── siteMap.html            # Casebook route index
+├── style.css               # Global Residence Casebook system
+└── residence.js            # Shared casebook interaction layer
 ```
 
 ## Contributor
 
 **Yehong Hu (James Hu)**
 
-All homes, agents, figures, and property information in this project are fictional and are used solely for educational and portfolio demonstration.
+All homes, figures, and property information in this project are fictional and are used solely for educational and portfolio demonstration.

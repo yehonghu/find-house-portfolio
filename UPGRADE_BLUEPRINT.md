@@ -1,37 +1,29 @@
-# Find House Rebuild Blueprint: Residence Casebook
+# Find House: Residence Casebook System
 
-## Corrective Brief
+## Single System Rule
 
-The previous homepage over-prioritized an abstract district-map concept. It obscured the original project’s strongest evidence—its property photography and individual house cases—and introduced a critical usability defect by applying `overflow: hidden` to the page wrapper. This rebuild removes that direction completely.
+Find House uses one public design system only: **Residence Casebook**. All public routes share the same photography-first, editorial real-estate direction and one consistent navigation model.
 
-## New Visual Direction
+## Public Information Architecture
 
-**Residence Casebook** is a quiet, editorial property portfolio. The photography is the visual system: each existing home image occupies meaningful scale and each case is given a distinct moment to breathe. The interface uses a restrained ink, warm ivory, and muted brass palette only to frame the homes; it does not compete with them through synthetic background art or decorative map graphics.
-
-The design should feel like opening a considered real-estate monograph. It begins with an actual house photograph, then moves through a clear collection of three original cases: **7 Gerald Street**, **St. Andrew–Windfields**, and **Morningside Townhome**. Every case retains its original detail page as the conversion destination.
-
-## Interaction Principles
-
-| Interaction | Behavior | Constraint |
+| Route | Role in the casebook | Primary original assets |
 |---|---|---|
-| Page scroll | Normal native document scrolling with no `overflow: hidden`, full-screen trap, or scroll-jacking | The entire page must be reachable by wheel, touch, keyboard, and scrollbar. |
-| Hero image | A gentle pointer-driven crop shift and an editorial information panel | The house photo remains legible and never moves beyond its frame. |
-| Case sequence | Case cards rise and reveal as they enter the viewport; image cards respond to a small controlled pointer tilt | Each case remains a normal semantic link and usable without motion. |
-| Scroll progress | A minimal vertical progress rule gives long-page orientation | It is decorative and disabled for reduced-motion preferences. |
-| Image details | Existing home photos appear at large scale with location, price, type, and key facts beside them | No fabricated cases, generic substitutes, or hidden imagery. |
+| `home.html` | Editorial opening and three selected case studies | All six project house images, with three full case images foregrounded |
+| `search.html` | The Collection, a clear comparison view for all residences | `house1.jpg`, `house2.jpg`, `image-house3.jpg` plus selected case photography |
+| `houseInfo1.html` | Case 01: 7 Gerald Street | `image-house5.jpg` |
+| `houseInfo2.html` | Case 02: Windfields Estate | `image-house8.jpg` |
+| `houseInfo3.html` | Case 03: Morningside Townhome | `image-house6.jpg` |
+| `contact.html` | Viewing inquiry and direct conversation | A restrained editorial frame; no competing stock imagery |
+| `siteMap.html` | Casebook index and route reference | Small thumbnail evidence from the original collection |
 
-## Original Assets Now on the Homepage
+## Navigation Rule
 
-| Original case | Hero/detail asset | Destination |
-|---|---|---|
-| 7 Gerald Street | `image-house5.jpg` | `houseInfo1.html` |
-| St. Andrew–Windfields Estate | `image-house8.jpg` | `houseInfo2.html` |
-| Morningside Townhome | `image-house6.jpg` | `houseInfo3.html` |
+Every page uses the same primary links: **Casebook**, **All residences**, **Selected homes**, **Contact**, and **Plan a viewing**. The footer repeats the same current routes and the sole contributor name Yehong Hu (James Hu).
 
-## Acceptance Criteria
+## Visual Rule
 
-1. The public homepage scrolls naturally through every section.
-2. The hero and three case studies visibly use the project’s original house images.
-3. Each case links to its real, existing property detail page.
-4. The project remains entirely English and publicly runs as a static GitHub Pages website.
-5. Public contributor information names Yehong Hu (James Hu) only, and all Git commits use the `yehonghu` identity.
+Photography carries the visual weight. Warm ivory, graphite, muted brass, and soft stone only frame the original images. The system uses editorial serif display text, narrow uppercase labels, clear image captions, generous space, and controlled motion.
+
+## Motion Rule
+
+The document scrolls natively. A thin vertical reading rule, image micro-parallax, gentle case-card tilt, and viewport reveals provide movement without capturing scroll or obscuring the homes. The full experience supports reduced-motion preferences.
