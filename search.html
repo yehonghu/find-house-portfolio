@@ -3,254 +3,64 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Properties For Sale — Find House</title>
+  <meta name="description" content="Browse fictional Toronto homes by property type, price range, and bedroom count in the Find House City Contours experience.">
+  <meta name="theme-color" content="#fafaf7">
+  <title>Browse Homes — Find House</title>
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="city-page">
+  <div class="city-progress" aria-hidden="true"></div>
+  <header class="site-header" id="siteHeader"><div class="nav-inner"><div class="site-logo"><a href="home.html" aria-label="Find House home"><span class="logo-icon" aria-hidden="true">⌂</span>Find House</a></div><button class="nav-toggle" id="navToggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button><nav class="nav-links" id="navLinks"><a href="home.html">Explore city</a><a href="search.html" class="active">Browse homes</a><a href="contact.html">Talk to us</a><a href="siteMap.html">Site map</a><a href="contact.html" class="nav-cta">Plan a viewing</a></nav></div></header>
 
-  <!-- ======== NAVIGATION ======== -->
-  <header class="site-header" id="siteHeader">
-    <div class="nav-inner">
-      <div class="site-logo">
-        <a href="home.html">
-          <div class="logo-icon">🏠</div>
-          Find House
-        </a>
+  <main>
+    <section class="city-hero" style="min-height:420px; padding-top:70px; padding-bottom:58px;">
+      <div class="city-grid" aria-hidden="true" style="position:absolute; inset:0;"></div>
+      <div class="city-hero-inner" style="grid-template-columns:1fr; min-height:auto;">
+        <div class="city-reveal"><span class="city-label">Available property signals</span><h1 style="max-width:840px;">Compare the homes that make sense on your map.</h1><p>Filter by the basic facts, then read each listing as a place: its scale, setting, and the kind of Toronto day it can hold.</p></div>
       </div>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-        <span></span><span></span><span></span>
-      </button>
-      <nav class="nav-links" id="navLinks">
-        <a href="home.html">Home</a>
-        <a href="search.html" class="active">For Sale</a>
-        <a href="contact.html">Contact Us</a>
-        <a href="siteMap.html">Site Map</a>
-        <a href="contact.html" class="nav-cta">Get Started</a>
-      </nav>
-    </div>
-  </header>
+    </section>
 
-  <!-- ======== PAGE HEADER ======== -->
-  <div style="background: linear-gradient(135deg, var(--primary) 0%, #0f2540 100%); padding: 52px 32px 48px;">
-    <div style="max-width:1280px; margin:0 auto;">
-      <div class="hero-badge" style="margin-bottom:14px;">🏡 Available Now</div>
-      <h1 style="font-size:clamp(28px,4vw,48px); font-weight:800; color:#fff; letter-spacing:-.5px; margin-bottom:10px;">Properties For Sale</h1>
-      <p style="color:rgba(255,255,255,.75); font-size:16px;">Discover premium homes in Toronto's most sought-after neighbourhoods.</p>
-    </div>
-  </div>
+    <section class="city-section" style="padding-top:58px;">
+      <div class="city-section-inner">
+        <div class="filter-bar city-reveal" style="background:rgba(255,255,255,.68); border-color:var(--city-border); box-shadow:var(--city-shadow);">
+          <div class="filter-group"><label for="filterType">Home type</label><select id="filterType"><option value="">All types</option><option value="detached">Detached</option><option value="townhouse">Townhouse</option><option value="condo">Condo</option></select></div>
+          <div class="filter-group"><label for="filterMinPrice">Starting price</label><select id="filterMinPrice"><option value="">No minimum</option><option value="1000000">$1,000,000</option><option value="2000000">$2,000,000</option><option value="3000000">$3,000,000</option></select></div>
+          <div class="filter-group"><label for="filterMaxPrice">Maximum price</label><select id="filterMaxPrice"><option value="">No maximum</option><option value="2500000">$2,500,000</option><option value="3500000">$3,500,000</option><option value="6000000">$6,000,000</option></select></div>
+          <div class="filter-group"><label for="filterBeds">Bedrooms</label><select id="filterBeds"><option value="">Any count</option><option value="3">3 or more</option><option value="4">4 or more</option><option value="5">5 or more</option></select></div>
+          <button class="btn-filter" type="button" onclick="applyFilters()">Update map</button>
+        </div>
 
-  <!-- ======== MAIN CONTENT ======== -->
-  <section class="section">
-    <div class="section-inner">
+        <div class="city-section-head city-reveal" style="margin-top:54px; margin-bottom:28px;"><div><span class="city-label">Shortlist view</span><h2 style="font-size:clamp(32px,4vw,49px);">Current map pins</h2></div><p>Showing <strong id="resultCount" style="color:var(--city-signal);">3</strong> homes that meet the current search signal.</p></div>
 
-      <!-- Filter Bar -->
-      <div class="filter-bar fade-in-up">
-        <div class="filter-group">
-          <label>Property Type</label>
-          <select id="filterType">
-            <option value="">All Types</option>
-            <option value="detached">Detached</option>
-            <option value="townhouse">Townhouse</option>
-            <option value="condo">Condo</option>
-          </select>
+        <div class="properties-grid" id="propertiesGrid">
+          <article class="property-card city-reveal" data-type="detached" data-price="5300000" data-beds="6"><div class="property-img-wrap"><img src="house1.jpg" alt="7 Gerald Street exterior"><span class="property-badge hot">West end</span><button class="property-fav" aria-label="Save 7 Gerald Street" aria-pressed="false">♡</button></div><div class="property-body"><div class="property-price">$5,300,000</div><div class="property-address">7 Gerald Street, South Leaside</div><div class="property-specs"><span class="spec-item"><span class="spec-icon">◫</span>4+2 beds</span><span class="spec-item"><span class="spec-icon">◐</span>4 baths</span><span class="spec-item"><span class="spec-icon">↔</span>1,200–1,399 sq ft</span></div><div class="property-footer"><span class="property-listed">Garden setting · New signal</span><a href="houseInfo1.html" class="btn-view">Open home →</a></div></div></article>
+          <article class="property-card city-reveal" style="transition-delay:.1s" data-type="detached" data-price="3190000" data-beds="5"><div class="property-img-wrap"><img src="house2.jpg" alt="St. Andrew–Windfields estate exterior"><span class="property-badge">North York</span><button class="property-fav" aria-label="Save Windfields estate" aria-pressed="false">♡</button></div><div class="property-body"><div class="property-price">$3,190,000</div><div class="property-address">St. Andrew–Windfields, Toronto</div><div class="property-specs"><span class="spec-item"><span class="spec-icon">◫</span>5 beds</span><span class="spec-item"><span class="spec-icon">◐</span>6 baths</span><span class="spec-item"><span class="spec-icon">↔</span>15,000 sq ft lot</span></div><div class="property-footer"><span class="property-listed">Family scale · Quiet pocket</span><a href="houseInfo2.html" class="btn-view">Open home →</a></div></div></article>
+          <article class="property-card city-reveal" style="transition-delay:.2s" data-type="townhouse" data-price="2149000" data-beds="3"><div class="property-img-wrap"><img src="image-house3.jpg" alt="Morningside townhome exterior"><span class="property-badge new">East end</span><button class="property-fav" aria-label="Save Morningside townhome" aria-pressed="false">♡</button></div><div class="property-body"><div class="property-price">$2,149,000</div><div class="property-address">Morningside, Scarborough</div><div class="property-specs"><span class="spec-item"><span class="spec-icon">◫</span>3 beds</span><span class="spec-item"><span class="spec-icon">◐</span>5 baths</span><span class="spec-item"><span class="spec-icon">↔</span>1,974 sq ft</span></div><div class="property-footer"><span class="property-listed">Transit access · New signal</span><a href="houseInfo3.html" class="btn-view">Open home →</a></div></div></article>
         </div>
-        <div class="filter-group">
-          <label>Min Price</label>
-          <select id="filterMinPrice">
-            <option value="">No Min</option>
-            <option value="1000000">$1,000,000</option>
-            <option value="2000000">$2,000,000</option>
-            <option value="3000000">$3,000,000</option>
-          </select>
-        </div>
-        <div class="filter-group">
-          <label>Max Price</label>
-          <select id="filterMaxPrice">
-            <option value="">No Max</option>
-            <option value="2500000">$2,500,000</option>
-            <option value="3500000">$3,500,000</option>
-            <option value="6000000">$6,000,000</option>
-          </select>
-        </div>
-        <div class="filter-group">
-          <label>Bedrooms</label>
-          <select id="filterBeds">
-            <option value="">Any</option>
-            <option value="3">3+</option>
-            <option value="4">4+</option>
-            <option value="5">5+</option>
-          </select>
-        </div>
-        <button class="btn-filter" onclick="applyFilters()">Search</button>
+        <div id="emptyState" style="display:none; text-align:center; padding:72px 20px; border:1px solid var(--city-border); background:rgba(255,255,255,.55);"><p class="city-label">No matching map pins</p><h3 class="city-display" style="font-size:31px; margin-top:12px;">Try opening the search radius.</h3><p class="city-copy" style="margin-top:8px;">Adjust the price, type, or bedroom signals to return to the current collection.</p></div>
       </div>
+    </section>
+  </main>
 
-      <!-- Results count -->
-      <div style="margin-bottom:24px; font-size:14px; color:var(--text-muted);">
-        Showing <strong id="resultCount" style="color:var(--primary);">3</strong> properties
-      </div>
-
-      <!-- Property Grid -->
-      <div class="properties-grid" id="propertiesGrid">
-
-        <!-- Property 1 -->
-        <div class="property-card fade-in-up"
-             data-type="detached" data-price="5300000" data-beds="6">
-          <div class="property-img-wrap">
-            <img src="house1.jpg" alt="7 Gerald St — Luxury Townhouse">
-            <span class="property-badge hot">Hot</span>
-            <button class="property-fav" onclick="toggleFav(this)" title="Save property">♡</button>
-          </div>
-          <div class="property-body">
-            <div class="property-price">$5,300,000</div>
-            <div class="property-address">7 Gerald St, South Leaside, Toronto</div>
-            <div class="property-specs">
-              <div class="spec-item"><span class="spec-icon">🛏</span> 4+2 Beds</div>
-              <div class="spec-item"><span class="spec-icon">🚿</span> 4 Baths</div>
-              <div class="spec-item"><span class="spec-icon">🚗</span> 4 Parking</div>
-              <div class="spec-item"><span class="spec-icon">📐</span> 1,200–1,399 sqft</div>
-            </div>
-            <div class="property-footer">
-              <span class="property-listed">Listed 2 hours ago</span>
-              <a href="houseInfo1.html" class="btn-view">View Details →</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Property 2 -->
-        <div class="property-card fade-in-up" style="animation-delay:.1s"
-             data-type="detached" data-price="3190000" data-beds="5">
-          <div class="property-img-wrap">
-            <img src="house2.jpg" alt="St. Andrew-Windfields Estate">
-            <span class="property-badge">For Sale</span>
-            <button class="property-fav" onclick="toggleFav(this)" title="Save property">♡</button>
-          </div>
-          <div class="property-body">
-            <div class="property-price">$3,190,000</div>
-            <div class="property-address">St. Andrew-Windfields, Toronto</div>
-            <div class="property-specs">
-              <div class="spec-item"><span class="spec-icon">🛏</span> 5 Beds</div>
-              <div class="spec-item"><span class="spec-icon">🚿</span> 6 Baths</div>
-              <div class="spec-item"><span class="spec-icon">🚗</span> 6 Parking</div>
-              <div class="spec-item"><span class="spec-icon">📐</span> 15,000 sqft lot</div>
-            </div>
-            <div class="property-footer">
-              <span class="property-listed">Listed 7 days ago</span>
-              <a href="houseInfo2.html" class="btn-view">View Details →</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Property 3 -->
-        <div class="property-card fade-in-up" style="animation-delay:.2s"
-             data-type="townhouse" data-price="2149000" data-beds="3">
-          <div class="property-img-wrap">
-            <img src="image-house3.jpg" alt="Morningside Townhome">
-            <span class="property-badge new">New</span>
-            <button class="property-fav" onclick="toggleFav(this)" title="Save property">♡</button>
-          </div>
-          <div class="property-body">
-            <div class="property-price">$2,149,000</div>
-            <div class="property-address">Morningside, Scarborough, Toronto</div>
-            <div class="property-specs">
-              <div class="spec-item"><span class="spec-icon">🛏</span> 3 Beds</div>
-              <div class="spec-item"><span class="spec-icon">🚿</span> 5 Baths</div>
-              <div class="spec-item"><span class="spec-icon">🚗</span> 3 Parking</div>
-              <div class="spec-item"><span class="spec-icon">📐</span> 1,974 sqft</div>
-            </div>
-            <div class="property-footer">
-              <span class="property-listed">Listed 13 days ago</span>
-              <a href="houseInfo3.html" class="btn-view">View Details →</a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Empty state -->
-      <div id="emptyState" style="display:none; text-align:center; padding:60px 20px;">
-        <div style="font-size:48px; margin-bottom:16px;">🔍</div>
-        <h3 style="font-size:20px; color:var(--primary); margin-bottom:8px;">No properties found</h3>
-        <p style="color:var(--text-muted);">Try adjusting your filters to see more results.</p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ======== FOOTER ======== -->
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <div class="footer-top">
-        <div class="footer-brand">
-          <div class="logo-text">🏠 Find House</div>
-          <p>Toronto's premier real estate agency, dedicated to helping you find the perfect home.</p>
-        </div>
-        <div class="footer-links-col">
-          <h4>Pages</h4>
-          <a href="home.html">Home</a>
-          <a href="search.html">For Sale</a>
-          <a href="contact.html">Contact Us</a>
-          <a href="siteMap.html">Site Map</a>
-        </div>
-        <div class="footer-links-col">
-          <h4>Contact</h4>
-          <a href="tel:+16045551234">+1 604-555-1234</a>
-          <a href="mailto:Yehong.findhouse@gmail.com">Yehong.findhouse@gmail.com</a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span>Copyright &copy; 2023 Yehong Hu &mdash; 301392896 &mdash; 23Fall Final Project</span>
-        <span>Find House &mdash; All rights reserved</span>
-      </div>
-    </div>
-  </footer>
-
+  <footer class="site-footer"><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><div class="logo-text">⌂ Find House</div><p>A fictional Toronto property exploration experience designed for portfolio demonstration.</p></div><div class="footer-links-col"><h4>Explore</h4><a href="home.html">City overview</a><a href="search.html">Available homes</a><a href="siteMap.html">Property paths</a></div><div class="footer-links-col"><h4>Connect</h4><a href="contact.html">Plan a viewing</a><a href="mailto:Yehong.findhouse@gmail.com">Yehong.findhouse@gmail.com</a></div></div><div class="footer-bottom"><span>© 2026 Find House · Contributor: Yehong Hu (James Hu)</span><span>Fictional listings for portfolio demonstration.</span></div></div></footer>
+  <script src="city-contours.js"></script>
   <script>
-    // Sticky header
-    const header = document.getElementById('siteHeader');
-    window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 10));
-
-    // Mobile nav
-    const toggle = document.getElementById('navToggle');
-    const navLinks = document.getElementById('navLinks');
-    toggle.addEventListener('click', () => {
-      toggle.classList.toggle('open');
-      navLinks.classList.toggle('open');
-    });
-
-    // Fade-in observer
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.12 });
-    document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
-
-    // Favourite toggle
-    function toggleFav(btn) {
-      btn.classList.toggle('active');
-      btn.textContent = btn.classList.contains('active') ? '❤️' : '♡';
-    }
-
-    // Filter
     function applyFilters() {
       const type = document.getElementById('filterType').value;
-      const minP = +document.getElementById('filterMinPrice').value || 0;
-      const maxP = +document.getElementById('filterMaxPrice').value || Infinity;
-      const beds = +document.getElementById('filterBeds').value || 0;
-
-      const cards = document.querySelectorAll('.property-card');
+      const minPrice = Number(document.getElementById('filterMinPrice').value) || 0;
+      const maxPrice = Number(document.getElementById('filterMaxPrice').value) || Infinity;
+      const beds = Number(document.getElementById('filterBeds').value) || 0;
       let visible = 0;
-      cards.forEach(card => {
-        const cType  = card.dataset.type;
-        const cPrice = +card.dataset.price;
-        const cBeds  = +card.dataset.beds;
-        const show = (!type || cType === type) && cPrice >= minP && cPrice <= maxP && cBeds >= beds;
-        card.style.display = show ? '' : 'none';
-        if (show) visible++;
+      document.querySelectorAll('.property-card').forEach((card) => {
+        const matches = (!type || card.dataset.type === type) && Number(card.dataset.price) >= minPrice && Number(card.dataset.price) <= maxPrice && Number(card.dataset.beds) >= beds;
+        card.style.display = matches ? '' : 'none';
+        if (matches) visible += 1;
       });
       document.getElementById('resultCount').textContent = visible;
-      document.getElementById('emptyState').style.display = visible === 0 ? 'block' : 'none';
+      document.getElementById('emptyState').style.display = visible ? 'none' : 'block';
     }
   </script>
 </body>

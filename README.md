@@ -1,83 +1,54 @@
-# 🏠 Find House — Premium Real Estate Portfolio
+# Find House
 
-A fully upgraded real estate frontend project showcasing modern UI/UX design, responsive layout, smooth animations, and interactive features.
+> A fictional Toronto property exploration experience built around neighbourhood context, spatial comparison, and a clear next viewing.
 
-## 🌐 Live Demo
+Find House is a static, portfolio-grade real-estate interface. The upgraded **City Contours** system turns a traditional listings site into a map-informed city journey: visitors begin with district signals, compare a concise property collection, inspect individual homes, and start a viewing conversation.
 
-**[👉 View Live Website](https://yehonghu.github.io/find-house-portfolio/)**
+## Live Preview
 
-> Or open `home.html` directly in your browser — no build step required.
+The static site is published at [yehonghu.github.io/find-house-portfolio](https://yehonghu.github.io/find-house-portfolio/).
 
-## 📸 Pages
+## Experience
 
-| Page | Description |
-|------|-------------|
-| `home.html` | Homepage with hero section, animated stats counter, and agent profiles |
-| `search.html` | Property listings with filter bar, favourite toggle, and card grid |
-| `houseInfo1.html` | Property detail — 7 Gerald St ($5,300,000) |
-| `houseInfo2.html` | Property detail — St. Andrew-Windfields ($3,190,000) |
-| `houseInfo3.html` | Property detail — Morningside Townhome ($2,149,000) |
-| `contact.html` | Contact form with two-column layout and toast notification |
-| `siteMap.html` | Site map with card-based navigation grid |
+| Surface | Interaction and purpose |
+|---|---|
+| City overview | A pointer-responsive district board uses layered property markers, map lines, and spatial depth to introduce the collection. |
+| Scroll journey | Progress rail, contour-grid parallax, and staggered reveals give the page the rhythm of moving through a city. |
+| Listing search | Visitors can filter fictional homes by type, price range, and bedroom count, then save a listing locally during the session. |
+| Property details | Individual house pages provide a focused property narrative, facts, and a direct contact route. |
+| Contact and sitemap | Visitors can start a viewing conversation or revisit the complete site structure. |
 
-## ✨ Upgrade Highlights
+## Design Language
 
-### Visual Design
-- **Design system** — Unified CSS variables (colors, radius, shadows, transitions)
-- **Color palette** — Deep navy `#1a3c5e` + vibrant orange `#e8703a`
-- **Hero section** — Gradient background with geometric pattern overlay
-- **Modern cards** — Rounded corners, subtle borders, layered shadows
+**City Contours** deliberately differs from the other portfolio projects. It uses limestone, city fog, charcoal labels, brick-red location signals, park-green land fields, and cobalt transit lines. Architectural cards, map contours, and controlled elevation make the interface feel like an urban field guide rather than a generic luxury real-estate template.
 
-### Interactions
-- **Sticky navbar** — Shadow deepens on scroll; active page highlighted with underline animation
-- **Hamburger menu** — Responsive mobile navigation with open/close animation
-- **Scroll fade-in** — All cards animate in using `IntersectionObserver`
-- **Animated counters** — Stats count up from 0 on scroll into view
-- **Favourite button** — Toggle save on property cards (♡ → ❤️)
-- **Property filter** — Filter by type, price range, and bedroom count in real time
-- **Form toast** — Submit contact form → green success toast (no page reload)
+## Technology
 
-### Structure
-- **House detail pages** — Now include full header/footer (missing in original)
-- **Hero image overlay** — Large photo with price/address overlay on detail pages
-- **Sticky sidebar** — Spec summary + contact CTA on property detail pages
-- **Fully responsive** — Mobile (480px), tablet (768px), desktop
+| Area | Tools |
+|---|---|
+| Markup | HTML5 |
+| Styling | CSS3 custom properties, responsive grid, three-dimensional transforms, reduced-motion support |
+| Interaction | Vanilla JavaScript, IntersectionObserver, pointer movement, local favourite state, dynamic filters |
+| Deployment | Static GitHub Pages site with no build step |
 
-## 🛠 Tech Stack
+## Run Locally
 
-- Pure **HTML5 + CSS3 + Vanilla JavaScript** — zero dependencies, zero build tools
-- **Google Fonts** — Montserrat
-- **CSS Custom Properties** for theming
-- **IntersectionObserver API** for scroll animations
+Clone the repository and open `index.html` or `home.html` in a modern browser. No dependency installation or build command is required.
 
-## 📁 File Structure
-
-```
+```text
 find-house-portfolio/
-├── home.html
-├── search.html
-├── houseInfo1.html
-├── houseInfo2.html
-├── houseInfo3.html
-├── contact.html
-├── siteMap.html
-├── style.css
-├── Agent1.jpg
-├── Agent2.png
-├── house1.jpg
-├── house2.jpg
-├── image-house3.jpg
-├── image-house5.jpg
-├── image-house6.jpg
-├── image-house8.jpg
-└── README.md
+├── index.html              # Static entry and home redirect
+├── home.html               # City Contours overview
+├── search.html             # Filterable property collection
+├── houseInfo*.html         # Property detail pages
+├── contact.html            # Viewing inquiry form
+├── siteMap.html            # Site structure
+├── style.css               # Global City Contours system
+└── city-contours.js        # Shared dynamic interaction layer
 ```
 
-## 👤 Author
+## Contributor
 
-**Yehong Hu** — Student ID: 301392896  
-23Fall Final Project (Upgraded)
+**Yehong Hu (James Hu)**
 
----
-
-*All property listings and agent profiles are fictional and created for educational/portfolio purposes only.*
+All homes, agents, figures, and property information in this project are fictional and are used solely for educational and portfolio demonstration.
