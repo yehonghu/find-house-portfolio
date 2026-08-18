@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Find House is a fictional Toronto property exploration experience with curated listings, neighborhood signals, and guided viewing paths.">
+  <meta name="theme-color" content="#fafaf7">
+  <title>Find House — Explore Toronto by Feel</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body class="city-page">
+  <div class="city-progress" aria-hidden="true"></div>
+
+  <header class="site-header" id="siteHeader">
+    <div class="nav-inner">
+      <div class="site-logo">
+        <a href="home.html" aria-label="Find House home"><span class="logo-icon" aria-hidden="true">⌂</span>Find House</a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+      <nav class="nav-links" id="navLinks">
+        <a href="home.html" class="active">Explore city</a>
+        <a href="search.html">Browse homes</a>
+        <a href="contact.html">Talk to us</a>
+        <a href="siteMap.html">Site map</a>
+        <a href="contact.html" class="nav-cta">Plan a viewing</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="city-hero">
+      <div class="city-grid" aria-hidden="true" style="position:absolute; inset:0;"></div>
+      <div class="city-hero-inner">
+        <div class="city-reveal">
+          <span class="city-label">Toronto property field notes</span>
+          <h1>Find a home that <em>belongs</em> to your day.</h1>
+          <p>Explore a smaller, more considered view of the city. Begin with neighbourhood character, compare the homes that match it, then turn a promising address into a real viewing.</p>
+          <div class="city-hero-actions">
+            <a class="city-button" href="search.html">Explore available homes <span aria-hidden="true">→</span></a>
+            <a class="city-button-outline" href="#city-path">Follow the city path</a>
+          </div>
+          <div class="city-hero-meta">
+            <span><i></i> Curated Toronto listings</span>
+            <span><i style="background:var(--city-line)"></i> Neighbourhood-first search</span>
+          </div>
+        </div>
+
+        <div class="city-board-wrap city-reveal" style="transition-delay:.12s">
+          <div class="city-board" aria-label="Abstract Toronto property district map">
+            <span class="city-land one" aria-hidden="true"></span>
+            <span class="city-land two" aria-hidden="true"></span>
+            <span class="city-marker one" aria-hidden="true"><b>01</b></span>
+            <span class="city-marker two" aria-hidden="true"><b>02</b></span>
+            <span class="city-marker three" aria-hidden="true"><b>03</b></span>
+            <article class="city-listing-tile a">
+              <small>West end · New signal</small>
+              <strong>Gerald Street</strong>
+              <span>$5.30M · Detached</span>
+            </article>
+            <article class="city-listing-tile b">
+              <small>North York · Quiet pocket</small>
+              <strong>Windfields</strong>
+              <span>$3.19M · Family home</span>
+            </article>
+            <span class="city-board-note">3 places worth a closer look</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="city-stats">
+      <div class="stats-inner">
+        <div class="stat-item city-reveal"><div class="stat-number" data-target="25053">0</div><div class="stat-label">Homes matched</div></div>
+        <div class="stat-item city-reveal" style="transition-delay:.08s"><div class="stat-number" data-target="17898">0</div><div class="stat-label">Client conversations</div></div>
+        <div class="stat-item city-reveal" style="transition-delay:.16s"><div class="stat-number" data-target="12">0</div><div class="stat-label">Years reading the city</div></div>
+        <div class="stat-item city-reveal" style="transition-delay:.24s"><div class="stat-number" data-target="98">0</div><div class="stat-label">Would recommend</div></div>
+      </div>
+    </section>
+
+    <section class="city-section" id="city-path">
+      <div class="city-section-inner">
+        <div class="city-section-head city-reveal">
+          <div><span class="city-label">Read the city before the listing</span><h2>A home search is a series of location decisions.</h2></div>
+          <p>Start with how a district moves, what it holds close, and how the property supports the rhythm you want to keep.</p>
+        </div>
+        <div class="city-signals">
+          <article class="city-signal city-reveal"><span class="city-signal-num">01</span><b>Notice the setting</b><p>Use district signals to move beyond price and floor plan into the texture of a place.</p></article>
+          <article class="city-signal city-reveal" style="transition-delay:.1s"><span class="city-signal-num">02</span><b>Compare the structure</b><p>Read space, light, scale, and everyday potential side by side without losing the bigger map.</p></article>
+          <article class="city-signal city-reveal" style="transition-delay:.2s"><span class="city-signal-num">03</span><b>Make the next move</b><p>Use a focused viewing conversation to turn an address from a possibility into a decision.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="city-section" style="padding-top:20px;">
+      <div class="city-section-inner">
+        <div class="city-section-head city-reveal">
+          <div><span class="city-label">Current map pins</span><h2>Three homes, three ways to live in Toronto.</h2></div>
+          <a class="city-button-outline" href="search.html">See all listings <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="properties-grid">
+          <article class="property-card city-reveal">
+            <div class="property-img-wrap"><img src="house1.jpg" alt="Exterior view of 7 Gerald Street"><span class="property-badge">West end</span><button class="property-fav" aria-label="Save 7 Gerald Street" aria-pressed="false">♡</button></div>
+            <div class="property-body"><div class="property-price">$5,300,000</div><div class="property-address">7 Gerald Street, Toronto</div><div class="property-specs"><span class="spec-item"><span class="spec-icon">◫</span>4 beds</span><span class="spec-item"><span class="spec-icon">◐</span>4 baths</span><span class="spec-item"><span class="spec-icon">↔</span>3,000 sq ft</span></div><div class="property-footer"><span class="property-listed">Detached · Garden setting</span><a class="btn-view" href="houseInfo1.html">See the home →</a></div></div>
+          </article>
+          <article class="property-card city-reveal" style="transition-delay:.1s">
+            <div class="property-img-wrap"><img src="house2.jpg" alt="Exterior view of a Windfields family home"><span class="property-badge new">North York</span><button class="property-fav" aria-label="Save Windfields family home" aria-pressed="false">♡</button></div>
+            <div class="property-body"><div class="property-price">$3,190,000</div><div class="property-address">St. Andrew–Windfields</div><div class="property-specs"><span class="spec-item"><span class="spec-icon">◫</span>5 beds</span><span class="spec-item"><span class="spec-icon">◐</span>5 baths</span><span class="spec-item"><span class="spec-icon">↔</span>4,200 sq ft</span></div><div class="property-footer"><span class="property-listed">Family home · Quiet pocket</span><a class="btn-view" href="houseInfo2.html">See the home →</a></div></div>
+          </article>
+          <article class="property-card city-reveal" style="transition-delay:.2s">
+            <div class="property-img-wrap"><img src="image-house3.jpg" alt="Exterior view of a Morningside townhome"><span class="property-badge hot">East end</span><button class="property-fav" aria-label="Save Morningside townhome" aria-pressed="false">♡</button></div>
+            <div class="property-body"><div class="property-price">$2,149,000</div><div class="property-address">Morningside, Toronto</div><div class="property-specs"><span class="spec-item"><span class="spec-icon">◫</span>3 beds</span><span class="spec-item"><span class="spec-icon">◐</span>3 baths</span><span class="spec-item"><span class="spec-icon">↔</span>2,100 sq ft</span></div><div class="property-footer"><span class="property-listed">Townhome · Transit access</span><a class="btn-view" href="houseInfo3.html">See the home →</a></div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="city-section" style="background:rgba(227,230,225,.45);">
+      <div class="city-section-inner">
+        <div class="city-section-head city-reveal">
+          <div><span class="city-label">People who know the blocks</span><h2>Local context, carried into every conversation.</h2></div>
+          <p>Meet the team behind the listing notes, viewing plans, and next questions.</p>
+        </div>
+        <div class="agents-grid">
+          <article class="agent-card city-reveal"><div class="agent-card-img-wrap"><img class="agent-card-img" src="Agent1.jpg" alt="Victor Hawthorne"></div><div class="agent-card-body"><div class="agent-name">Victor Hawthorne</div><span class="agent-title-badge">West and central Toronto</span><p class="agent-mission">Victor brings patient market reading and a practical negotiation perspective to buyers and sellers making a significant move.</p><div class="agent-contact"><div class="agent-contact-item"><div class="contact-icon">↗</div>View neighbourhood notes</div><div class="agent-contact-item"><div class="contact-icon">✉</div>victor.hawthorne@gmail.com</div></div></div></article>
+          <article class="agent-card city-reveal" style="transition-delay:.12s"><div class="agent-card-img-wrap"><img class="agent-card-img" src="Agent2.png" alt="Maximilian Sterling"></div><div class="agent-card-body"><div class="agent-name">Maximilian Sterling</div><span class="agent-title-badge">North York and family homes</span><p class="agent-mission">Maximilian connects property decisions to the daily patterns that make a neighbourhood feel sustainable over time.</p><div class="agent-contact"><div class="agent-contact-item"><div class="contact-icon">↗</div>Plan a focused viewing</div><div class="agent-contact-item"><div class="contact-icon">✉</div>max.sterling@gmail.com</div></div></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="city-section">
+      <div class="city-section-inner city-reveal" style="max-width:1050px; text-align:center; border:1px solid var(--city-border); padding:76px 32px; background:linear-gradient(135deg,rgba(221,208,189,.72),rgba(238,242,236,.85)); box-shadow:var(--city-shadow);">
+        <span class="city-label">Your next location signal</span>
+        <h2 style="max-width:720px; margin:18px auto 0;">The right property starts with a more useful question.</h2>
+        <p style="max-width:570px; margin:20px auto 30px; color:#65717a;">Tell us what needs to work in your daily life. We will help turn that into a more focused set of homes and a clearer next viewing.</p>
+        <div style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap;"><a class="city-button" href="contact.html">Start a property conversation <span aria-hidden="true">→</span></a><a class="city-button-outline" href="search.html">Browse listings</a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner"><div class="footer-top"><div class="footer-brand"><div class="logo-text">⌂ Find House</div><p>A fictional Toronto property exploration experience built around neighbourhood context, considered comparison, and clear next steps.</p></div><div class="footer-links-col"><h4>Explore</h4><a href="home.html">City overview</a><a href="search.html">Available homes</a><a href="siteMap.html">Property paths</a></div><div class="footer-links-col"><h4>Connect</h4><a href="contact.html">Plan a viewing</a><a href="mailto:Yehong.findhouse@gmail.com">Yehong.findhouse@gmail.com</a></div></div><div class="footer-bottom"><span>© 2026 Find House · Contributor: Yehong Hu (James Hu)</span><span>Fictional listings for portfolio demonstration.</span></div></div>
+  </footer>
+  <script src="city-contours.js"></script>
+</body>
+</html>
