@@ -1,34 +1,37 @@
-# Find House Upgrade Blueprint
+# Find House Rebuild Blueprint: Residence Casebook
 
-## Product Role
+## Corrective Brief
 
-Find House is a fictional Toronto real-estate exploration experience. Its strongest portfolio story is not the agent directory: it is helping a visitor form a feeling for place, compare a small set of homes, and move from broad city orientation to a focused property conversation.
+The previous homepage over-prioritized an abstract district-map concept. It obscured the original project’s strongest evidence—its property photography and individual house cases—and introduced a critical usability defect by applying `overflow: hidden` to the page wrapper. This rebuild removes that direction completely.
 
-## Visual Direction: City Contours
+## New Visual Direction
 
-Find House will avoid the cinematic dark portfolio, the warm paper bulletin-board language of BookEase, and the high-key organic learning world of PsychMind. **City Contours** is an architectural, map-informed property interface. It uses limestone, soft fog, charcoal labels, brick-red location signals, park-green land fields, and cobalt transit lines.
+**Residence Casebook** is a quiet, editorial property portfolio. The photography is the visual system: each existing home image occupies meaningful scale and each case is given a distinct moment to breathe. The interface uses a restrained ink, warm ivory, and muted brass palette only to frame the homes; it does not compete with them through synthetic background art or decorative map graphics.
 
-The public homepage behaves like a living district map. Street-grid contours sit behind the story, property markers become stacked architectural tiles, and the central city model shifts subtly with pointer movement. The visual tone is composed and urban rather than luxury-generic: it should feel like a considered walk through a city, not a sales brochure.
+The design should feel like opening a considered real-estate monograph. It begins with an actual house photograph, then moves through a clear collection of three original cases: **7 Gerald Street**, **St. Andrew–Windfields**, and **Morningside Townhome**. Every case retains its original detail page as the conversion destination.
 
-## Dynamic Interaction System
+## Interaction Principles
 
-| Surface | Motion behavior | Product purpose |
+| Interaction | Behavior | Constraint |
 |---|---|---|
-| Reading rail | A narrow route-progress line tracks long-page movement | Establishes deliberate exploration through the page. |
-| Hero map | Pointer-responsive district board with stacked property markers | Gives the visitor a spatial overview before listing-level detail. |
-| Scroll sections | Parallax contour lines, staggered marker reveals, and gentle elevation | Makes a city journey feel continuous rather than sectioned. |
-| Listing cards | Controlled architectural lift, image crop movement, and favourite feedback | Makes comparisons feel tactile without sacrificing clarity. |
-| Property path | Connected city nodes from neighbourhood to viewing to next action | Explains the home-search process as a series of confident decisions. |
-| Reduced motion | Static marker layout and non-animated progress feedback | Preserves usability for visitors who prefer less motion. |
+| Page scroll | Normal native document scrolling with no `overflow: hidden`, full-screen trap, or scroll-jacking | The entire page must be reachable by wheel, touch, keyboard, and scrollbar. |
+| Hero image | A gentle pointer-driven crop shift and an editorial information panel | The house photo remains legible and never moves beyond its frame. |
+| Case sequence | Case cards rise and reveal as they enter the viewport; image cards respond to a small controlled pointer tilt | Each case remains a normal semantic link and usable without motion. |
+| Scroll progress | A minimal vertical progress rule gives long-page orientation | It is decorative and disabled for reduced-motion preferences. |
+| Image details | Existing home photos appear at large scale with location, price, type, and key facts beside them | No fabricated cases, generic substitutes, or hidden imagery. |
 
-## Scope
+## Original Assets Now on the Homepage
 
-1. Preserve all existing home, listing, property detail, contact, and sitemap pages.
-2. Rebuild the shared page frame, navigation, home story, CSS tokens, and listing-card interactions around City Contours.
-3. Keep the original static listings and property-detail pages functional, while making their hierarchy and navigation consistent with the new system.
-4. Keep the whole repository English, including source comments and documentation.
-5. Publish the static files to the existing `gh-pages` branch so the portfolio can be opened directly without a build step.
+| Original case | Hero/detail asset | Destination |
+|---|---|---|
+| 7 Gerald Street | `image-house5.jpg` | `houseInfo1.html` |
+| St. Andrew–Windfields Estate | `image-house8.jpg` | `houseInfo2.html` |
+| Morningside Townhome | `image-house6.jpg` | `houseInfo3.html` |
 
-## Attribution
+## Acceptance Criteria
 
-All commits and deployment commits will use the GitHub identity `yehonghu` with the user-owned GitHub noreply address. README, footer, and public contributor information will name Yehong Hu (James Hu) only. No agent or third-party attribution will be added.
+1. The public homepage scrolls naturally through every section.
+2. The hero and three case studies visibly use the project’s original house images.
+3. Each case links to its real, existing property detail page.
+4. The project remains entirely English and publicly runs as a static GitHub Pages website.
+5. Public contributor information names Yehong Hu (James Hu) only, and all Git commits use the `yehonghu` identity.

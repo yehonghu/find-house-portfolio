@@ -1229,3 +1229,135 @@ body {
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
 }
+
+
+/* ============================================================
+   Find House — Residence Casebook Rebuild
+   Photography-first residential case studies.
+   ============================================================ */
+html:has(.residence-page), body.residence-page {
+  min-height: 100%;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  background: #f2ede4;
+  color: #1c1b19;
+}
+body.residence-page { font-family: 'Montserrat', sans-serif; }
+.residence-page .city-progress {
+  width: 3px;
+  height: 100vh;
+  transform-origin: center top;
+  transform: scaleY(0);
+  background: #c19a61;
+  left: auto;
+  right: 0;
+  top: 0;
+  box-shadow: none;
+}
+.residence-page .site-header {
+  position: absolute;
+  top: 0;
+  height: 84px;
+  background: transparent;
+  border-bottom-color: rgba(255,255,255,.18);
+  z-index: 50;
+}
+.residence-page .site-header.scrolled {
+  position: fixed;
+  height: 68px;
+  background: rgba(247,243,236,.96);
+  border-bottom-color: rgba(28,27,25,.12);
+  box-shadow: 0 8px 30px rgba(18,17,15,.1);
+}
+.residence-page .site-logo a { color: #fff; font-family: Georgia, 'Times New Roman', serif; font-size: 24px; }
+.residence-page .logo-icon { width: 31px; height: 31px; background: transparent; border: 1px solid rgba(255,255,255,.7); border-radius: 50%; box-shadow: none; font-size: 17px; }
+.residence-page .nav-links a { color: rgba(255,255,255,.9); font-family: 'Montserrat', sans-serif; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; }
+.residence-page .nav-links a:hover, .residence-page .nav-links a.active { color: #fff; background: transparent; }
+.residence-page .nav-links a::after { background: #d8b376; }
+.residence-page .nav-cta { border: 1px solid rgba(255,255,255,.7); background: transparent !important; border-radius: 0 !important; box-shadow: none !important; }
+.residence-page .nav-cta:hover { color: #1c1b19 !important; background: #f7f3ec !important; }
+.residence-page .site-header.scrolled .site-logo a, .residence-page .site-header.scrolled .nav-links a { color: #1c1b19; }
+.residence-page .site-header.scrolled .logo-icon { border-color: #1c1b19; }
+.residence-page .site-header.scrolled .nav-links a:hover, .residence-page .site-header.scrolled .nav-links a.active { color: #8c6735; }
+.residence-page .site-header.scrolled .nav-cta { border-color: #1c1b19; }
+.residence-page .site-header.scrolled .nav-cta:hover { color: #f7f3ec !important; background: #1c1b19 !important; }
+
+.residence-hero { position: relative; min-height: max(720px, 100svh); display: grid; align-items: end; overflow: hidden; color: #fff; background: #2a2926; }
+.residence-hero-media { position: absolute; inset: -4%; background: url('image-house5.jpg') center 54% / cover no-repeat; transform: scale(1.04) translate3d(var(--hero-x, 0px), var(--hero-y, 0px), 0); transition: transform .35s ease-out; will-change: transform; }
+.residence-hero-media::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(13,12,10,.82) 0%, rgba(13,12,10,.42) 40%, rgba(13,12,10,.06) 70%), linear-gradient(0deg, rgba(13,12,10,.78) 0%, transparent 52%); }
+.residence-hero-content { position: relative; z-index: 2; width: min(1280px, calc(100% - 64px)); margin: 0 auto; padding: 155px 0 68px; display: grid; grid-template-columns: minmax(0, 670px) 1fr; gap: 44px; align-items: end; }
+.residence-kicker { display: flex; align-items: center; gap: 11px; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: #e1c28e; font-weight: 700; }
+.residence-kicker::before { content: ''; width: 38px; height: 1px; background: #e1c28e; }
+.residence-hero h1 { max-width: 660px; margin: 21px 0 20px; font-family: Georgia, 'Times New Roman', serif; font-size: clamp(48px, 6.4vw, 91px); line-height: .9; letter-spacing: -.075em; font-weight: 500; }
+.residence-hero h1 em { color: #e0bd7d; font-style: italic; }
+.residence-hero p { max-width: 510px; margin: 0; color: rgba(255,255,255,.78); font-size: 16px; line-height: 1.75; }
+.residence-hero-action { margin-top: 30px; display: inline-flex; align-items: center; gap: 15px; padding: 0 0 9px; border-bottom: 1px solid rgba(255,255,255,.7); color: #fff; font-size: 12px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; transition: color .2s ease, border-color .2s ease; }
+.residence-hero-action:hover { color: #e0bd7d; border-color: #e0bd7d; }
+.residence-hero-case { justify-self: end; width: min(320px, 100%); padding: 19px 0 0 22px; border-left: 1px solid rgba(255,255,255,.48); }
+.residence-hero-case span { display: block; color: rgba(255,255,255,.62); font-size: 10px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; }
+.residence-hero-case b { display: block; margin-top: 8px; font-family: Georgia, 'Times New Roman', serif; font-size: 24px; letter-spacing: -.04em; font-weight: 400; }
+.residence-hero-case p { margin-top: 8px; font-size: 12px; }
+.residence-scroll-cue { position: absolute; z-index: 2; right: 32px; bottom: 31px; display: flex; align-items: center; gap: 11px; color: rgba(255,255,255,.62); font-size: 9px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; writing-mode: vertical-rl; }
+.residence-scroll-cue::after { content: ''; height: 42px; width: 1px; background: rgba(255,255,255,.5); }
+
+.residence-main { background: #f2ede4; }
+.residence-intro { width: min(1280px, calc(100% - 64px)); margin: 0 auto; padding: 130px 0 100px; display: grid; grid-template-columns: .7fr 1.3fr; gap: 60px; }
+.residence-index { color: #97723f; font-family: Georgia, 'Times New Roman', serif; font-size: 17px; font-style: italic; }
+.residence-intro h2 { max-width: 880px; margin: 0; color: #20201e; font-family: Georgia, 'Times New Roman', serif; font-size: clamp(40px, 5vw, 73px); line-height: .98; letter-spacing: -.065em; font-weight: 400; }
+.residence-intro p { max-width: 550px; margin: 27px 0 0; color: #605d57; font-size: 16px; line-height: 1.8; }
+.residence-intro .residence-rule { height: 1px; width: 100%; margin-top: 37px; background: rgba(28,27,25,.16); }
+
+.residence-case-list { display: flex; flex-direction: column; gap: 0; }
+.residence-case { width: min(1280px, calc(100% - 64px)); margin: 0 auto; padding: 72px 0; display: grid; grid-template-columns: minmax(0, 1.34fr) minmax(270px, .66fr); gap: clamp(34px, 7vw, 108px); align-items: center; border-top: 1px solid rgba(28,27,25,.15); }
+.residence-case:nth-child(even) .residence-case-image { order: 2; }
+.residence-case-image { display: block; position: relative; overflow: hidden; background: #c9c1b4; min-height: 510px; transform: perspective(1000px) rotateX(var(--case-rx, 0deg)) rotateY(var(--case-ry, 0deg)); transition: transform .22s ease-out; box-shadow: 0 24px 46px rgba(35,31,25,.16); }
+.residence-case-image::before { content: ''; position: absolute; z-index: 1; inset: 0; background: linear-gradient(0deg, rgba(17,15,12,.24), transparent 48%); pointer-events: none; }
+.residence-case-image img { width: 100%; height: 100%; position: absolute; inset: 0; object-fit: cover; transition: transform .8s cubic-bezier(.16,1,.3,1); }
+.residence-case-image:hover img { transform: scale(1.045); }
+.residence-case-number { position: absolute; z-index: 2; left: 22px; top: 20px; padding: 8px 10px; color: #fff; font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; background: rgba(21,19,17,.66); backdrop-filter: blur(7px); }
+.residence-case-image .case-view { position: absolute; z-index: 2; right: 22px; bottom: 20px; color: #fff; padding: 9px 0; font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; border-bottom: 1px solid rgba(255,255,255,.85); }
+.residence-case-meta { max-width: 390px; }
+.residence-case-meta .case-place { color: #9a7647; font-size: 11px; font-weight: 750; letter-spacing: .16em; text-transform: uppercase; }
+.residence-case-meta h3 { margin: 15px 0 16px; color: #20201e; font-family: Georgia, 'Times New Roman', serif; font-size: clamp(39px, 4vw, 60px); line-height: .91; letter-spacing: -.065em; font-weight: 400; }
+.residence-case-meta .case-price { color: #20201e; font-size: 18px; font-weight: 700; }
+.residence-case-meta p { margin: 18px 0 24px; color: #605d57; font-size: 15px; line-height: 1.8; }
+.residence-facts { display: flex; gap: 0; margin-top: 26px; border-top: 1px solid rgba(28,27,25,.16); border-bottom: 1px solid rgba(28,27,25,.16); }
+.residence-fact { flex: 1; padding: 14px 8px; border-left: 1px solid rgba(28,27,25,.16); }
+.residence-fact:first-child { border-left: none; }
+.residence-fact b { display: block; font-family: Georgia, 'Times New Roman', serif; color: #20201e; font-size: 19px; font-weight: 400; }
+.residence-fact span { display: block; margin-top: 2px; color: #77716a; font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+.residence-link { display: inline-flex; align-items: center; gap: 12px; margin-top: 27px; color: #20201e; font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; border-bottom: 1px solid #20201e; padding-bottom: 8px; transition: color .2s ease, transform .2s ease; }
+.residence-link:hover { color: #9a7647; transform: translateX(5px); }
+
+.residence-close { background: #1f1e1b; color: #f5f0e7; padding: 116px 32px; }
+.residence-close-inner { width: min(1100px, 100%); margin: 0 auto; text-align: center; }
+.residence-close h2 { max-width: 820px; margin: 18px auto 0; font-family: Georgia, 'Times New Roman', serif; font-size: clamp(43px, 5vw, 73px); line-height: .95; letter-spacing: -.065em; font-weight: 400; }
+.residence-close p { max-width: 520px; margin: 22px auto 32px; color: rgba(245,240,231,.7); line-height: 1.75; }
+.residence-close .residence-kicker { justify-content: center; }
+.residence-close .residence-kicker::after { content: ''; width: 38px; height: 1px; background: #e1c28e; }
+.residence-close-action { display: inline-flex; align-items: center; gap: 14px; color: #1f1e1b; background: #f5f0e7; padding: 17px 22px; font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; transition: background .2s ease, transform .2s ease; }
+.residence-close-action:hover { background: #e1c28e; color: #1f1e1b; transform: translateY(-3px); }
+.residence-page .site-footer { background: #151412; }
+
+@media (max-width: 820px) {
+  .residence-page .nav-links { background: rgba(29,28,25,.98); }
+  .residence-page .site-header.scrolled .nav-links { background: rgba(247,243,236,.99); }
+  .residence-hero { min-height: 740px; }
+  .residence-hero-content { width: min(100% - 40px, 680px); padding: 140px 0 44px; display: block; }
+  .residence-hero-case { margin-top: 46px; justify-self: start; }
+  .residence-scroll-cue { display: none; }
+  .residence-intro { width: min(100% - 40px, 680px); padding: 84px 0 66px; display: block; }
+  .residence-intro h2 { margin-top: 25px; }
+  .residence-case { width: min(100% - 40px, 680px); padding: 48px 0; grid-template-columns: 1fr; gap: 30px; }
+  .residence-case:nth-child(even) .residence-case-image { order: initial; }
+  .residence-case-image { min-height: 410px; }
+  .residence-close { padding: 83px 20px; }
+}
+@media (max-width: 480px) {
+  .residence-page .site-header { height: 68px; }
+  .residence-page .nav-inner { padding: 0 20px; }
+  .residence-page .site-logo a { font-size: 21px; }
+  .residence-hero h1 { font-size: 52px; }
+  .residence-case-image { min-height: 340px; }
+  .residence-case-meta h3 { font-size: 46px; }
+}
