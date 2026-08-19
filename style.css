@@ -204,3 +204,337 @@ button, input, textarea, select { font: inherit; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
 }
+
+
+/* Find House — Cinematic Spatial Casebook home experience */
+.spatial-home {
+  --spatial-ink: #f8ede0;
+  --spatial-muted: #cfc0b2;
+  --spatial-coal: #101211;
+  --spatial-umber: #6e5541;
+  --spatial-brass: #d9af74;
+  background: var(--spatial-coal);
+  color: var(--spatial-ink);
+  font-family: "DM Sans", Arial, sans-serif;
+}
+
+.spatial-home .scroll-progress {
+  z-index: 250;
+  width: 2px;
+  background: linear-gradient(180deg, #f4dec1, #b77b48);
+}
+
+.spatial-home .site-header {
+  position: absolute;
+  height: 78px;
+  background: linear-gradient(180deg, rgb(7 9 8 / 56%), transparent);
+  border-bottom: 1px solid rgb(255 246 231 / 15%);
+  color: var(--spatial-ink);
+  transition: background 220ms ease, height 220ms ease, border-color 220ms ease;
+}
+
+.spatial-home .site-header.scrolled {
+  position: fixed;
+  height: 66px;
+  background: rgb(11 13 12 / 86%);
+  border-bottom-color: rgb(255 246 231 / 17%);
+  box-shadow: none;
+  backdrop-filter: blur(18px) saturate(125%);
+}
+
+.spatial-home .nav-inner { width: min(1440px, calc(100% - 64px)); }
+.spatial-home .site-logo a { color: var(--spatial-ink); font-family: "Playfair Display", Georgia, serif; font-size: 24px; letter-spacing: -.05em; }
+.spatial-home .logo-icon { width: 31px; height: 31px; border-color: rgb(255 246 231 / 44%); font-family: "DM Mono", monospace; font-size: 8px; letter-spacing: .05em; }
+.spatial-home .nav-links { gap: 10px; }
+.spatial-home .nav-links a { color: rgb(255 246 231 / 70%); font-family: "DM Mono", monospace; font-size: 9px; font-weight: 500; letter-spacing: .11em; }
+.spatial-home .nav-links a:hover, .spatial-home .nav-links a.active { color: var(--spatial-ink); }
+.spatial-home .nav-cta { margin-left: 8px; border: 1px solid rgb(255 246 231 / 54%); color: var(--spatial-ink) !important; }
+.spatial-home .nav-cta:hover { border-color: var(--spatial-ink); background: var(--spatial-ink); color: #151714 !important; }
+
+.spatial-journey {
+  --fh-progress: 0;
+  --fh-pointer-x: 50%;
+  --fh-pointer-y: 50%;
+  --fh-intro-opacity: 1;
+  --fh-intro-y: 0px;
+  --fh-cards-opacity: 0;
+  --fh-cards-y: 76px;
+  --fh-panel-opacity: 0;
+  --fh-panel-y: 70px;
+  position: relative;
+  height: 520vh;
+  background: #141614;
+}
+
+.spatial-stage {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  min-height: 640px;
+  overflow: hidden;
+  isolation: isolate;
+  background: #4d4136;
+}
+
+.spatial-world,
+.spatial-world::after,
+.spatial-layer,
+.spatial-ambient,
+.spatial-grid,
+.spatial-vignette,
+.spatial-pointer-light {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.spatial-world { z-index: 0; overflow: hidden; background: #342b25; }
+.spatial-world::after { content: ""; z-index: 8; background: linear-gradient(180deg, rgb(11 12 11 / 22%) 0%, transparent 28%, rgb(11 12 11 / 13%) 55%, rgb(9 10 9 / 72%) 100%); }
+.spatial-layer { display: block; width: 100%; height: 100%; object-fit: cover; will-change: transform, opacity, filter; user-select: none; -webkit-user-drag: none; }
+
+.spatial-layer--sky {
+  z-index: 0;
+  transform: scale(calc(1.08 + var(--fh-progress) * .075));
+  filter: saturate(calc(.88 - var(--fh-progress) * .12)) brightness(calc(.66 - var(--fh-progress) * .12));
+}
+
+.spatial-ambient {
+  z-index: 1;
+  background:
+    radial-gradient(ellipse 55% 50% at 76% 17%, rgb(242 202 147 / 33%), transparent 72%),
+    linear-gradient(105deg, rgb(18 14 12 / 52%) 0%, transparent 46%, rgb(235 188 127 / 13%) 100%);
+  mix-blend-mode: screen;
+  opacity: calc(.56 - var(--fh-progress) * .18);
+}
+
+.spatial-layer--street {
+  z-index: 2;
+  left: -8%;
+  top: 8%;
+  width: 63%;
+  height: 82%;
+  object-position: 34% center;
+  clip-path: polygon(0 0, 86% 0, 100% 12%, 93% 100%, 0 100%);
+  opacity: calc(.78 - var(--fh-progress) * .33);
+  filter: sepia(.16) contrast(1.05) brightness(.78);
+  transform: translate3d(calc(var(--fh-progress) * -7vw), calc(6vh - var(--fh-progress) * 18vh), 0) scale(calc(1.03 + var(--fh-progress) * .12));
+}
+
+.spatial-layer--architecture {
+  z-index: 3;
+  left: 42%;
+  top: 13%;
+  width: 61%;
+  height: 72%;
+  object-position: 55% center;
+  clip-path: polygon(8% 0, 100% 0, 100% 100%, 0 91%);
+  opacity: calc(.63 - var(--fh-progress) * .2);
+  filter: sepia(.12) saturate(.86) brightness(.82);
+  transform: translate3d(calc((1 - var(--fh-progress)) * 9vw), calc(4vh - var(--fh-progress) * 20vh), 0) scale(calc(1.04 + var(--fh-progress) * .11));
+}
+
+.spatial-layer--foreground {
+  z-index: 4;
+  left: 12%;
+  top: 49%;
+  width: 82%;
+  height: 58%;
+  object-position: 50% 57%;
+  clip-path: polygon(0 17%, 38% 0, 100% 13%, 100% 100%, 0 100%);
+  opacity: calc(.72 - var(--fh-progress) * .52);
+  filter: sepia(.1) brightness(.72) saturate(.78);
+  transform: translate3d(0, calc(15vh - var(--fh-progress) * 33vh), 0) scale(calc(1.1 + var(--fh-progress) * .13));
+}
+
+.spatial-grid {
+  z-index: 6;
+  opacity: calc(.3 - var(--fh-progress) * .16);
+  background-image: linear-gradient(rgb(255 245 228 / 14%) 1px, transparent 1px), linear-gradient(90deg, rgb(255 245 228 / 14%) 1px, transparent 1px);
+  background-size: clamp(54px, 5vw, 82px) clamp(54px, 5vw, 82px);
+  mask-image: linear-gradient(90deg, black, transparent 76%);
+  transform: perspective(700px) rotateX(61deg) scale(1.56) translateY(19%);
+  transform-origin: center bottom;
+}
+
+.spatial-vignette {
+  z-index: 9;
+  background: radial-gradient(ellipse 77% 72% at 50% 42%, transparent 32%, rgb(4 5 4 / 48%) 100%);
+}
+
+.spatial-pointer-light {
+  z-index: 7;
+  width: 38rem;
+  height: 38rem;
+  inset: auto;
+  left: calc(var(--fh-pointer-x) - 19rem);
+  top: calc(var(--fh-pointer-y) - 19rem);
+  border-radius: 999px;
+  background: radial-gradient(circle, rgb(255 236 205 / 18%), rgb(225 177 114 / 7%) 34%, transparent 68%);
+  filter: blur(8px);
+  mix-blend-mode: screen;
+  opacity: .8;
+}
+
+.spatial-topline,
+.spatial-intro,
+.spatial-property-line,
+.spatial-residences,
+.spatial-inquiry,
+.spatial-credit { position: absolute; z-index: 12; }
+
+.spatial-topline {
+  top: max(6.75rem, 11vh);
+  left: clamp(1.25rem, 4vw, 4rem);
+  right: clamp(1.25rem, 4vw, 4rem);
+  display: flex;
+  justify-content: space-between;
+  color: rgb(255 245 228 / 71%);
+  font-family: "DM Mono", monospace;
+  font-size: 9px;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+
+.spatial-intro {
+  top: clamp(10rem, 22vh, 15rem);
+  left: clamp(1.25rem, 9vw, 10rem);
+  width: min(57rem, 82vw);
+  color: var(--spatial-ink);
+  opacity: var(--fh-intro-opacity);
+  transform: translate3d(0, var(--fh-intro-y), 0) scale(calc(1 - var(--fh-progress) * .08));
+  transform-origin: left center;
+  will-change: transform, opacity;
+}
+
+.spatial-kicker { margin: 0; color: var(--spatial-brass); font-family: "DM Mono", monospace; font-size: 10px; font-weight: 500; letter-spacing: .14em; line-height: 1.45; text-transform: uppercase; }
+.spatial-intro h1 { max-width: 18ch; margin: clamp(1.2rem, 2.6vh, 2.4rem) 0 0; font-family: "Playfair Display", Georgia, serif; font-size: clamp(3.85rem, 8.6vw, 8.75rem); font-weight: 400; letter-spacing: -.08em; line-height: .78; text-shadow: 0 5px 30px rgb(0 0 0 / 24%); }
+.spatial-intro h1 em { color: #e6bb86; font-weight: 400; }
+.spatial-intro-copy { max-width: 34rem; margin: 2rem 0 0; color: rgb(255 245 228 / 84%); font-size: clamp(.94rem, 1.35vw, 1.15rem); line-height: 1.55; }
+.spatial-scroll-cue { display: inline-flex; align-items: center; gap: .65rem; margin-top: 1.7rem; padding-bottom: .48rem; border-bottom: 1px solid rgb(255 245 228 / 72%); color: var(--spatial-ink); font-family: "DM Mono", monospace; font-size: 10px; letter-spacing: .11em; text-decoration: none; text-transform: uppercase; transition: color 180ms ease, transform 180ms ease; }
+.spatial-scroll-cue:hover { color: #e6bb86; transform: translateX(4px); }
+.spatial-scroll-cue span { animation: spatial-bob 2.3s ease-in-out infinite; }
+
+.spatial-property-line {
+  right: clamp(1.25rem, 5vw, 5.5rem);
+  bottom: clamp(3.5rem, 9vh, 7rem);
+  display: grid;
+  gap: .42rem;
+  width: min(17rem, 28vw);
+  padding-left: 1.25rem;
+  border-left: 1px solid rgb(255 245 228 / 55%);
+  color: rgb(255 245 228 / 75%);
+  transform: translate3d(0, calc(var(--fh-progress) * -7rem), 0);
+  opacity: calc(1 - var(--fh-progress) * 1.35);
+}
+.spatial-property-line span { font-family: "DM Mono", monospace; font-size: 9px; letter-spacing: .1em; text-transform: uppercase; }
+.spatial-property-line strong { color: var(--spatial-ink); font-family: "Playfair Display", Georgia, serif; font-size: 1.8rem; font-weight: 400; letter-spacing: -.06em; line-height: 1; }
+
+.spatial-residences {
+  top: clamp(8rem, 17vh, 12rem);
+  left: 0;
+  right: 0;
+  opacity: var(--fh-cards-opacity);
+  transform: translate3d(0, var(--fh-cards-y), 0);
+  transition: opacity 160ms linear;
+  pointer-events: none;
+}
+.spatial-residences > * { pointer-events: auto; }
+.spatial-residences-head, .spatial-controls { display: flex; align-items: center; justify-content: space-between; width: min(78vw, 1240px); margin: 0 auto 1rem; color: rgb(255 245 228 / 85%); font-family: "DM Mono", monospace; font-size: 10px; letter-spacing: .13em; text-transform: uppercase; }
+.spatial-track-wrap { overflow: hidden; padding-left: max(1.25rem, calc((100vw - min(78vw, 1240px)) / 2)); }
+.spatial-track { display: flex; gap: 1rem; transition: transform 620ms cubic-bezier(.22,1,.36,1); }
+.spatial-residence-card { position: relative; flex: 0 0 min(68vw, 460px); height: min(51vh, 26rem); overflow: hidden; padding: 1.4rem; color: var(--spatial-ink); border: 1px solid rgb(255 245 228 / 37%); border-radius: .2rem; background: #44382e; box-shadow: 0 28px 70px rgb(0 0 0 / 29%); text-decoration: none; transform: translateZ(0); transition: transform 240ms cubic-bezier(.23,1,.32,1), border-color 240ms ease, filter 240ms ease; }
+.spatial-residence-card:hover { border-color: rgb(255 245 228 / 76%); filter: saturate(1.12); transform: translateY(-5px); }
+.spatial-residence-card:active { transform: scale(.98); }
+.spatial-residence-card img, .spatial-card-shade { position: absolute; inset: 0; width: 100%; height: 100%; }
+.spatial-residence-card img { object-fit: cover; transition: transform 800ms cubic-bezier(.16,1,.3,1); }
+.spatial-residence-card:hover img { transform: scale(1.06); }
+.spatial-card-shade { background: linear-gradient(180deg, rgb(8 9 8 / 12%) 0%, rgb(8 9 8 / 18%) 30%, rgb(8 9 8 / 86%) 100%); }
+.spatial-card-index, .spatial-card-location, .spatial-residence-card h2, .spatial-residence-card p, .spatial-card-action { position: absolute; z-index: 1; }
+.spatial-card-index { top: 1.35rem; right: 1.4rem; color: rgb(255 245 228 / 72%); font-family: "DM Mono", monospace; font-size: 10px; }
+.spatial-card-location { top: 1.4rem; left: 1.4rem; max-width: 65%; color: rgb(255 245 228 / 88%); font-family: "DM Mono", monospace; font-size: 9px; letter-spacing: .1em; text-transform: uppercase; }
+.spatial-residence-card h2 { right: 1.4rem; bottom: 4.1rem; left: 1.4rem; margin: 0; font-family: "Playfair Display", Georgia, serif; font-size: clamp(2.5rem, 4vw, 4rem); font-weight: 400; letter-spacing: -.075em; line-height: .76; }
+.spatial-residence-card p { right: 1.4rem; bottom: 1.52rem; left: 1.4rem; margin: 0; color: rgb(255 245 228 / 78%); font-family: "DM Mono", monospace; font-size: 9px; letter-spacing: .08em; text-transform: uppercase; }
+.spatial-card-action { right: 1.4rem; bottom: 1.47rem; color: var(--spatial-ink); font-family: "DM Mono", monospace; font-size: 9px; letter-spacing: .08em; opacity: 0; text-transform: uppercase; transform: translateX(-6px); transition: opacity 180ms ease, transform 180ms ease; }
+.spatial-card-action b { font-size: 1.15rem; font-weight: 400; vertical-align: -1px; }
+.spatial-residence-card:hover .spatial-card-action { opacity: 1; transform: translateX(0); }
+.spatial-residence-card:hover p { opacity: 0; }
+.spatial-controls { justify-content: flex-start; gap: .75rem; margin-top: 1rem; }
+.spatial-controls button { display: grid; width: 3rem; height: 3rem; place-items: center; border: 1px solid rgb(255 245 228 / 36%); border-radius: 999px; background: rgb(13 15 13 / 40%); color: var(--spatial-ink); cursor: pointer; backdrop-filter: blur(11px); transition: transform 160ms cubic-bezier(.23,1,.32,1), background 160ms ease, border-color 160ms ease; }
+.spatial-controls button:hover { border-color: rgb(255 245 228 / 72%); background: rgb(255 245 228 / 17%); transform: translateY(-2px); }
+.spatial-controls button:active { transform: scale(.96); }
+
+.spatial-inquiry {
+  right: clamp(1.25rem, 8vw, 10rem);
+  bottom: clamp(4rem, 12vh, 9rem);
+  width: min(29rem, calc(100vw - 2.5rem));
+  padding: clamp(1.35rem, 2.8vw, 2.1rem);
+  border: 1px solid rgb(255 245 228 / 24%);
+  background: rgb(13 15 13 / 51%);
+  color: var(--spatial-ink);
+  opacity: var(--fh-panel-opacity);
+  transform: translate3d(0, var(--fh-panel-y), 0);
+  backdrop-filter: blur(22px) saturate(125%);
+  box-shadow: 0 24px 76px rgb(0 0 0 / 32%), inset 0 1px 0 rgb(255 255 255 / 12%);
+}
+.spatial-inquiry h2 { margin: 1rem 0 0; font-family: "Playfair Display", Georgia, serif; font-size: clamp(2.35rem, 4vw, 4.35rem); font-weight: 400; letter-spacing: -.08em; line-height: .8; }
+.spatial-inquiry > p:not(.spatial-kicker) { max-width: 31rem; margin: 1.35rem 0 0; color: rgb(255 245 228 / 75%); font-size: .95rem; line-height: 1.55; }
+.spatial-inquiry-facts { display: flex; gap: 2rem; margin-top: 1.6rem; padding-top: 1.3rem; border-top: 1px solid rgb(255 245 228 / 19%); }
+.spatial-inquiry-facts strong { display: block; font-family: "Playfair Display", Georgia, serif; font-size: 2rem; font-weight: 400; line-height: .85; }
+.spatial-inquiry-facts span { display: block; margin-top: .4rem; color: rgb(255 245 228 / 62%); font-family: "DM Mono", monospace; font-size: 8px; letter-spacing: .08em; text-transform: uppercase; }
+.spatial-inquiry a { display: inline-flex; gap: .6rem; margin-top: 1.6rem; padding-bottom: .5rem; border-bottom: 1px solid var(--spatial-ink); color: var(--spatial-ink); font-family: "DM Mono", monospace; font-size: 9px; letter-spacing: .1em; text-decoration: none; text-transform: uppercase; transition: color 180ms ease, transform 180ms ease; }
+.spatial-inquiry a:hover { color: var(--spatial-brass); transform: translateX(4px); }
+.spatial-credit { bottom: 1.35rem; left: 50%; max-width: calc(100vw - 2rem); color: rgb(255 245 228 / 51%); font-family: "DM Mono", monospace; font-size: 8px; letter-spacing: .1em; text-align: center; text-transform: uppercase; transform: translateX(-50%); }
+
+.spatial-afterword { display: grid; grid-template-columns: .9fr 1fr auto; gap: clamp(2rem, 7vw, 8rem); align-items: end; padding: clamp(5rem, 10vw, 10rem) max(1.5rem, calc((100vw - 1280px) / 2)); background: #eee3d4; color: #24201c; }
+.spatial-afterword .spatial-kicker { color: #9f744d; }
+.spatial-afterword h2 { max-width: 10ch; margin: 1.2rem 0 0; font-family: "Playfair Display", Georgia, serif; font-size: clamp(3rem, 5.2vw, 5.4rem); font-weight: 400; letter-spacing: -.08em; line-height: .82; }
+.spatial-afterword > p { max-width: 26rem; margin: 0; color: #61594f; font-size: 1rem; line-height: 1.65; }
+.spatial-afterword-link { display: inline-flex; align-items: center; gap: .8rem; margin-bottom: .3rem; padding-bottom: .5rem; border-bottom: 1px solid #24201c; color: #24201c; font-family: "DM Mono", monospace; font-size: 9px; letter-spacing: .1em; text-decoration: none; text-transform: uppercase; transition: color 180ms ease, transform 180ms ease; }
+.spatial-afterword-link:hover { color: #a16e43; transform: translateX(4px); }
+
+.spatial-home .site-footer { background: #101211; }
+.spatial-home .footer-top { border-bottom-color: rgb(255 245 228 / 12%); }
+.spatial-home .logo-text { font-family: "Playfair Display", Georgia, serif; }
+
+@keyframes spatial-bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(4px); } }
+
+@media (max-width: 820px) {
+  .spatial-home .site-header { height: 68px; }
+  .spatial-home .site-header.scrolled { height: 62px; }
+  .spatial-home .nav-inner { width: calc(100% - 40px); }
+  .spatial-home .nav-links { top: 68px; background: rgb(12 14 12 / 96%); backdrop-filter: blur(18px); }
+  .spatial-home .site-header.scrolled .nav-links { top: 62px; }
+  .spatial-home .nav-links a { color: var(--spatial-ink); }
+  .spatial-journey { height: 560vh; }
+  .spatial-topline { top: 6.2rem; }
+  .spatial-topline span:last-child { display: none; }
+  .spatial-intro { top: 20vh; left: 1.35rem; width: calc(100% - 2.7rem); }
+  .spatial-intro h1 { font-size: clamp(3.7rem, 15vw, 6.5rem); }
+  .spatial-intro-copy { max-width: 27rem; margin-top: 1.5rem; font-size: .92rem; }
+  .spatial-layer--street { left: -17%; width: 80%; height: 81%; }
+  .spatial-layer--architecture { left: 42%; top: 16%; width: 80%; height: 66%; }
+  .spatial-layer--foreground { left: -6%; width: 115%; }
+  .spatial-property-line { right: 1.35rem; bottom: 5rem; width: 14rem; }
+  .spatial-property-line strong { font-size: 1.55rem; }
+  .spatial-credit { left: 1.35rem; bottom: .85rem; width: 12rem; max-width: 12rem; line-height: 1.45; text-align: left; transform: none; }
+  .spatial-residences { top: 20vh; }
+  .spatial-residences-head, .spatial-controls { width: calc(100vw - 2.7rem); }
+  .spatial-residence-card { flex-basis: min(84vw, 420px); height: min(49vh, 25rem); }
+  .spatial-inquiry { right: 1.35rem; bottom: 3.7rem; }
+  .spatial-pointer-light { display: none; }
+  .spatial-afterword { grid-template-columns: 1fr; gap: 1.7rem; padding: 5.5rem 1.35rem; }
+  .spatial-afterword h2 { max-width: 11ch; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spatial-journey { height: auto; min-height: 100svh; }
+  .spatial-stage { position: relative; height: auto; min-height: 100svh; padding: 7.5rem 0 3.5rem; overflow: visible; }
+  .spatial-world { position: fixed; }
+  .spatial-intro, .spatial-residences, .spatial-inquiry, .spatial-credit { position: relative; inset: auto; transform: none; opacity: 1; margin: 2.3rem auto; }
+  .spatial-intro { width: min(88vw, 45rem); }
+  .spatial-residences { padding-top: 1rem; }
+  .spatial-inquiry { width: min(88vw, 29rem); }
+  .spatial-credit { width: auto; text-align: center; }
+  .spatial-property-line { display: none; }
+  .spatial-scroll-cue span { animation: none; }
+}
